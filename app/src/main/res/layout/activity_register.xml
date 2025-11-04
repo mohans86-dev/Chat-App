@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp"
+    tools:context=".RegisterActivity">
+
+    <!-- App Logo -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_chat_logo"
+        app:tint="@android:color/white" />
+
+    <!-- App Title -->
+    <TextView
+        android:id="@+id/registerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_25sdp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Create Account"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_22ssp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_18sdp">
+        <!-- Username Field -->
+        <EditText
+            android:id="@+id/usernameInput"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:background="@drawable/login_edittext_bg"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#E0E0E0" />
+
+        <!-- Email Field -->
+        <EditText
+            android:id="@+id/emailInput"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:background="@drawable/login_edittext_bg"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#E0E0E0" />
+
+        <!-- Password Field -->
+        <EditText
+            android:id="@+id/passwordInput"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:background="@drawable/login_edittext_bg"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#E0E0E0" />
+
+        <!-- Confirm Password Field -->
+        <EditText
+            android:id="@+id/confirmPasswordInput"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/login_edittext_bg"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#E0E0E0" />
+
+        <!-- Register Button -->
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:backgroundTint="#6A1B9A"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Register"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp" />
+    </LinearLayout>
+
+    <!-- Spacer to push bottom text down -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Bottom Login Redirect -->
+    <TextView
+        android:id="@+id/loginRedirect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Already have an account? Login"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_12ssp" />
+
+</LinearLayout>
