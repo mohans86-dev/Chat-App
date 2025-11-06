@@ -37,7 +37,6 @@ It allows users to register, log in, chat with friends, and receive/send message
 | **Frontend (App)** | Android Studio (Java) |
 | **Backend (Database)** | Firebase Realtime Database |
 | **Authentication** | Firebase Authentication |
-| **Push Notifications** | Firebase Cloud Messaging (FCM) |
 | **UI Design** | XML, ConstraintLayout / LinearLayout |
 | **Media** | Glide for profile images, MediaPlayer for sounds |
 
