@@ -12,8 +12,7 @@ It allows users to register, log in, chat with friends, and receive/send message
 ✅ **User List** — Display all users (except the logged-in one)  
 ✅ **Sound Effects** — Play send & receive sounds for smooth chat experience  
 ✅ **Read Receipts (optional)** — Mark messages as seen  
-✅ **Profile Support** — Each user has a profile image & status  
-✅ **Push Notifications (optional)** — Receive notifications for new messages  
+✅ **Profile Support** — Each user has a profile image & status
 ✅ **Modern UI** — Gradient backgrounds, clean design, and smooth animations  
 
 ---
