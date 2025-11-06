@@ -10,7 +10,7 @@
     android:gravity="center_horizontal"
     android:padding="@dimen/_10sdp"
     android:background="@drawable/bg_gradient"
-    tools:context=".LoginActivity">
+    tools:context=".activity.LoginActivity">
 
     <!-- App Logo -->
     <ImageView
@@ -51,7 +51,7 @@
             android:paddingEnd="@dimen/_12sdp"
             android:textColorHint="#E0E0E0"
             android:textColor="@android:color/white"
-            android:background="@drawable/login_edittext_bg"
+            android:background="@drawable/bg_login_edittext"
             android:fontFamily="@font/poppins_regular"
             android:layout_marginBottom="@dimen/_12sdp" />
 
@@ -66,7 +66,7 @@
             android:paddingEnd="@dimen/_12sdp"
             android:textColorHint="#E0E0E0"
             android:textColor="@android:color/white"
-            android:background="@drawable/login_edittext_bg"
+            android:background="@drawable/bg_login_edittext"
             android:fontFamily="@font/poppins_regular"
             android:layout_marginBottom="@dimen/_20sdp" />
 

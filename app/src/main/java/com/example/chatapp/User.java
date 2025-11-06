@@ -1,9 +1,19 @@
 package com.example.chatapp;
 
 public class User {
-    String userName, userId, password, status, lastMessage, mail, profilePic;
+    String name, userId, password, status, lastMessage, mail, profilePic;
 
     public User(){}
+
+    public User(String lastMessage, String mail, String name, String password, String profilePic, String status, String userId) {
+        this.lastMessage = lastMessage;
+        this.mail = mail;
+        this.name = name;
+        this.password = password;
+        this.profilePic = profilePic;
+        this.status = status;
+        this.userId = userId;
+    }
 
     public String getLastMessage() {
         return lastMessage;
@@ -53,11 +63,11 @@ public class User {
         this.userId = userId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 }

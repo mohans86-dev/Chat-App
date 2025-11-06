@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_50sdp"
+    android:padding="10dp"
+    android:background="@drawable/bg_user_item"
+    android:id="@+id/userItem">
+
+    <!-- Profile Image -->
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_chat_person"
+        android:scaleType="centerCrop"
+        android:background="@drawable/bg_profile_circle"
+        android:layout_alignParentStart="true" />
+
+    <!-- User Name -->
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="John Doe"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_toEndOf="@id/profileImage"
+        android:layout_marginStart="12dp"
+        android:layout_alignTop="@id/profileImage" />
+
+    <!-- Last Message -->
+<!--    <TextView-->
+<!--        android:id="@+id/userStatus"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Hey, how are you?"-->
+<!--        android:textColor="#666666"-->
+<!--        android:textSize="13sp"-->
+<!--        android:fontFamily="@font/poppins_regular"-->
+<!--        android:layout_toEndOf="@id/profileImage"-->
+<!--        android:layout_below="@id/userName"-->
+<!--        android:layout_marginStart="12dp"-->
+<!--        android:layout_marginTop="2dp" />-->
+
+    <TextView
+        android:id="@+id/userLastMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hey, how are you?"
+        android:textColor="#666666"
+        android:textSize="13sp"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_toEndOf="@id/profileImage"
+        android:layout_below="@id/userName"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp" />
+</RelativeLayout>

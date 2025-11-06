@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/bg_gradient"
-    tools:context=".SplashActivity">
+    tools:context=".activity.SplashActivity">
 
     <!-- App Logo -->
     <ImageView

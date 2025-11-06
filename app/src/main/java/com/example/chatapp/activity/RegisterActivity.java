@@ -1,9 +1,9 @@
-package com.example.chatapp;
+package com.example.chatapp.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +17,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.chatapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -32,8 +33,9 @@ public class RegisterActivity extends AppCompatActivity {
     EditText usernameInput, emailInput, passwordInput, confirmPasswordInput;
     Button registerButton;
     FirebaseAuth auth;
-    DatabaseReference userRef;
+    DatabaseReference databaseReference;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    Dialog dialogLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +49,13 @@ public class RegisterActivity extends AppCompatActivity {
             return insets;
         });
 
+        // Loading dialog box
+        dialogLoading=new Dialog(this);
+        dialogLoading.setContentView(R.layout.dialog_loading);
+
         // Initialize Firebase
         auth = FirebaseAuth.getInstance();
-        userRef = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 
         // View Bindings
         loginRedirect = findViewById(R.id.loginRedirect);
@@ -66,7 +72,12 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         // Register button click
-        registerButton.setOnClickListener(v -> registerUser());
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerUser();
+            }
+        });
     }
 
     private void registerUser() {
@@ -98,6 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
+        dialogLoading.show();
         // Register user in Firebase Auth
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -115,15 +127,17 @@ public class RegisterActivity extends AppCompatActivity {
                             userMap.put("profileImage", ""); // empty for now, can be updated later
 
                             // Store user data in Realtime Database
-                            userRef.child(userId).setValue(userMap)
+                            databaseReference.child(userId).setValue(userMap)
                                     .addOnCompleteListener(task1 -> {
                                         if (task1.isSuccessful()) {
+                                            dialogLoading.dismiss();
                                             Toast.makeText(RegisterActivity.this,
                                                     "Registration Successful!", Toast.LENGTH_SHORT).show();
 
                                             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                             finish();
                                         } else {
+                                            dialogLoading.dismiss();
                                             Toast.makeText(RegisterActivity.this,
                                                     "Failed to save user data: " + task1.getException().getMessage(),
                                                     Toast.LENGTH_LONG).show();
@@ -131,6 +145,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     });
 
                         } else {
+                            dialogLoading.dismiss();
                             Toast.makeText(RegisterActivity.this,
                                     "Registration Failed: " + task.getException().getMessage(),
                                     Toast.LENGTH_LONG).show();

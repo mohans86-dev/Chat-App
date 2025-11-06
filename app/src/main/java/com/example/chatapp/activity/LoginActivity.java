@@ -1,5 +1,6 @@
-package com.example.chatapp;
+package com.example.chatapp.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,9 +17,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.chatapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.Firebase;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     Button loginButton;
     FirebaseAuth auth;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    Dialog dialogLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,10 @@ public class LoginActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Loading dialog box
+        dialogLoading=new Dialog(this);
+        dialogLoading.setContentView(R.layout.dialog_loading);
 
         auth = FirebaseAuth.getInstance();
         emailInput = findViewById(R.id.emailInput);
@@ -60,9 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 String email = emailInput.getText().toString();
                 String password = passwordInput.getText().toString();
 
-                if ((TextUtils.isEmpty(email))) {
-                    Toast.makeText(LoginActivity.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
-                } else if (TextUtils.isEmpty(password)) {
+                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                     Toast.makeText(LoginActivity.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
                 } else if (!email.matches(emailPattern)) {
                     emailInput.setError("Invalid email format");
@@ -70,18 +74,23 @@ public class LoginActivity extends AppCompatActivity {
                     passwordInput.setError("Invalid Password");
                 } else {
 
+                    dialogLoading.show();
                     auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 try {
+                                    dialogLoading.dismiss();
                                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                     finish();
 
                                 } catch (Exception e) {
+
+                                    dialogLoading.dismiss();
                                     Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             } else {
+                                dialogLoading.dismiss();
                                 Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -89,5 +98,16 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // ✅ If user already logged in, redirect automatically
+        if (auth.getCurrentUser() != null) {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish();
+        }
     }
 }

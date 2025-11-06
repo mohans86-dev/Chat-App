@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="start"
+    android:padding="@dimen/_6sdp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_receiver_bubble"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/receiverMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_50sdp"
+            android:maxWidth="@dimen/_200sdp"
+            android:paddingHorizontal="@dimen/_2sdp"
+            android:text="I'm fine, how about you?"
+            android:textColor="#212121"
+            android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/poppins_regular" />
+
+        <TextView
+            android:id="@+id/receiverTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10:46 AM"
+            android:textSize="10sp"
+            android:textColor="#9E9E9E"
+            android:layout_gravity="end"/>
+    </LinearLayout>
+</LinearLayout>
