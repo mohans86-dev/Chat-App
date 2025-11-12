@@ -12,8 +12,8 @@ It allows users to register, log in, chat with friends, and receive/send message
 | <img src="https://github.com/user-attachments/assets/d7c28306-823e-4f95-bda2-0dbb8c2f1e98" width="200" height="430"/> | <img src="https://github.com/user-attachments/assets/dc50805d-cf56-4882-8f54-fc69788f0011" width="200" height="430"/> | <img src="https://github.com/user-attachments/assets/20389d34-be6e-44a2-88e6-b3577f8b9221" width="200" height="430"/> |
 
 | Chat Window | Chat List |  |
-|--------------|------------|--|
-| <img src="https://github.com/user-attachments/assets/3291e05c-9b28-489d-9753-f36512b0b9c9" width="200" height="430"/> | <img src="https://github.com/user-attachments/assets/e83cf7e0-d7ac-428f-b276-15c1b23b09d5" width="200" height="430"/> |  |
+|--------------|------------|
+| <img src="https://github.com/user-attachments/assets/3291e05c-9b28-489d-9753-f36512b0b9c9" width="200" height="430"/> | <img src="https://github.com/user-attachments/assets/e83cf7e0-d7ac-428f-b276-15c1b23b09d5" width="200" height="430"/> |
 
 
 ---
