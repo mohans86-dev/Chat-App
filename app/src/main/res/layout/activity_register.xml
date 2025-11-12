@@ -18,8 +18,7 @@
         android:layout_height="@dimen/_80sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_chat_logo"
-        app:tint="@android:color/white" />
+        android:src="@drawable/ic_chat_logo" />
 
     <!-- App Title -->
     <TextView

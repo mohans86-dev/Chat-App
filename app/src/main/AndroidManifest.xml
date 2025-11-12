@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatApp" >
         <activity
-            android:name=".dialog_loading"
-            android:exported="false" />
-        <activity
             android:name=".activity.ChatWindowActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />

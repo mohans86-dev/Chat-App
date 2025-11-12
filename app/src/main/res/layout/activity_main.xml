@@ -25,8 +25,7 @@
             android:layout_width="@dimen/_34sdp"
             android:layout_height="@dimen/_34sdp"
             android:contentDescription="App Logo"
-            android:src="@drawable/ic_chat_logo"
-            app:tint="@android:color/white" />
+            android:src="@drawable/ic_chat_logo"/>
 
         <!-- App Name -->
         <TextView
